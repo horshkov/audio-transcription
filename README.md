@@ -92,6 +92,8 @@ audio-transcription/
 ├── cli.py             # Command-line tool
 ├── example.py         # Usage examples
 ├── requirements.txt   # Python dependencies
+├── Procfile           # Railway/Heroku deployment
+├── railway.json       # Railway configuration
 ├── .env.example       # Environment template
 ├── .env              # Your API keys (gitignored)
 └── .gitignore        # Protects sensitive files
@@ -106,6 +108,30 @@ audio-transcription/
 - [ ] Never commit API keys to git
 - [ ] Use environment variables in production
 - [ ] Monitor API usage and costs
+
+### Deploy to Railway
+
+1. **Connect Repository**
+   - Go to [Railway](https://railway.app)
+   - Click "New Project" → "Deploy from GitHub repo"
+   - Select `audio-transcription` repository
+
+2. **Configure Environment Variables**
+   - Go to project → Variables
+   - Add `ASSEMBLYAI_API_KEY` = your_assemblyai_key
+   - Add `TELEGRAM_BOT_TOKEN` = your_telegram_token
+
+3. **Deploy**
+   - Railway will automatically detect `railway.json` and `Procfile`
+   - Bot will start automatically
+   - Check logs for "Bot started" message
+
+### Deploy to Render / Heroku
+
+Same process - both platforms use `Procfile`:
+- Connect GitHub repository
+- Set environment variables in dashboard
+- Deploy automatically
 
 ### Deploy to Server
 
